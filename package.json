@@ -11,7 +11,7 @@
     "test:services": "mocha tests/services/*.test.js --timeout 5000",
     "test:integration": "mocha tests/integration/*.test.js --timeout 5000",
     "test:system": "mocha tests/system/*.test.js --timeout 5000",
-    "test:report": "mocha tests/**/*.test.js --recursive --timeout 5000 --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-report,reportTitle='Banco API Test Report',reportPageTitle='Test Results'",
+    "test:report": "mocha tests/**/*.test.js --recursive --timeout 5000 --reporter mochawesome --reporter-options reportDir=test-results,reportFilename=test-report,reportTitle=Banco-API-Test-Report,reportPageTitle=Test-Results",
     "test:ci": "mocha tests/**/*.test.js --recursive --timeout 5000 --reporter spec --reporter json --reporter-options output=test-results/test-results.json"
   },
   "keywords": [
