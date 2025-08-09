@@ -1,111 +1,111 @@
-# 🏦 Banco API
+# 🏦 Bank API
 
-API REST desenvolvida em JavaScript com Express para operações bancárias básicas. Esta API foi criada especificamente para aprendizado de testes e automação a nível de API.
+REST API developed in JavaScript with Express for basic banking operations. This API was created specifically for learning API-level testing and automation.
 
-## 📋 Índice
+## 📋 Table of Contents
 
-- [Características](#características)
-- [Tecnologias](#tecnologias)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Configuração](#configuração)
-- [Uso](#uso)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
 - [Endpoints](#endpoints)
-- [Regras de Negócio](#regras-de-negócio)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Exemplos de Uso](#exemplos-de-uso)
-- [Testes](#testes)
-- [Documentação](#documentação)
+- [Business Rules](#business-rules)
+- [Project Structure](#project-structure)
+- [Usage Examples](#usage-examples)
+- [Testing](#testing)
+- [Documentation](#documentation)
 
-## ✨ Características
+## ✨ Features
 
-- ✅ **Autenticação JWT** - Login seguro com tokens
-- ✅ **Registro de usuários** - Criação de novas contas
-- ✅ **Consulta de usuários** - Listagem e busca de usuários
-- ✅ **Transferências** - Sistema de transferência entre contas
-- ✅ **Extrato bancário** - Histórico de transações
-- ✅ **Lista de favorecidos** - Gerenciamento de contatos favoritos
-- ✅ **Consulta de saldo** - Verificação de saldo atual
-- ✅ **Documentação Swagger** - API totalmente documentada
-- ✅ **Validação de dados** - Validação robusta de entrada
-- ✅ **Arquitetura em camadas** - Controller, Service, Repository
-- ✅ **Banco em memória** - Dados armazenados em variáveis
+- ✅ **JWT Authentication** - Secure login with tokens
+- ✅ **User registration** - Create new accounts
+- ✅ **User queries** - List and search users
+- ✅ **Transfers** - Transfer system between accounts
+- ✅ **Bank statement** - Transaction history
+- ✅ **Favorites list** - Manage favorite contacts
+- ✅ **Balance inquiry** - Check current balance
+- ✅ **Swagger documentation** - Fully documented API
+- ✅ **Data validation** - Robust input validation
+- ✅ **Layered architecture** - Controller, Service, Repository
+- ✅ **In-memory database** - Data stored in variables
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-- **Node.js** - Runtime JavaScript
-- **Express.js** - Framework web
-- **JWT** - Autenticação com tokens
-- **bcryptjs** - Criptografia de senhas
-- **Swagger** - Documentação da API
-- **express-validator** - Validação de dados
-- **Mocha** - Framework de testes
-- **Chai** - Biblioteca de assertions
-- **Sinon** - Mocks e stubs
-- **Supertest** - Testes de API
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web framework
+- **JWT** - Token authentication
+- **bcryptjs** - Password encryption
+- **Swagger** - API documentation
+- **express-validator** - Data validation
+- **Mocha** - Testing framework
+- **Chai** - Assertion library
+- **Sinon** - Mocks and stubs
+- **Supertest** - API testing
 
-## 📋 Pré-requisitos
+## 📋 Prerequisites
 
-- Node.js (versão 14 ou superior)
-- npm ou yarn
+- Node.js (version 14 or higher)
+- npm or yarn
 
-## 🚀 Instalação
+## 🚀 Installation
 
-1. **Clone o repositório ou extraia os arquivos:**
+1. **Clone the repository or extract the files:**
    ```bash
    cd banco-api
    ```
 
-2. **Instale as dependências:**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Inicie o servidor:**
+3. **Start the server:**
    ```bash
-   # Modo de desenvolvimento (com nodemon)
+   # Development mode (with nodemon)
    npm run dev
 
-   # Modo de produção
+   # Production mode
    npm start
    ```
 
-4. **Acesse a API:**
-   - Servidor: http://localhost:3000
-   - Documentação: http://localhost:3000/api-docs
+4. **Access the API:**
+   - Server: http://localhost:3000
+   - Documentation: http://localhost:3000/api-docs
    - Status: http://localhost:3000/health
 
-## ⚙️ Configuração
+## ⚙️ Configuration
 
-### Variáveis de Ambiente (Opcional)
+### Environment Variables (Optional)
 
-Crie um arquivo `.env` na raiz do projeto:
+Create a `.env` file in the project root:
 
 ```env
 PORT=3000
-JWT_SECRET=seu-jwt-secret-aqui
+JWT_SECRET=your-jwt-secret-here
 ```
 
-### Dados Iniciais
+### Initial Data
 
-A API inicia com dois usuários de exemplo:
+The API starts with two example users:
 
-| Username | Password | Email | Saldo | Favorecidos |
-|----------|----------|-------|--------|-------------|
-| admin | password | admin@example.com | R$ 10.000,00 | [user1] |
-| user1 | password | user1@example.com | R$ 5.000,00 | [] |
+| Username | Password | Email | Balance | Favorites |
+|----------|----------|-------|---------|-----------|
+| admin | password | admin@example.com | $10,000.00 | [user1] |
+| user1 | password | user1@example.com | $5,000.00 | [] |
 
-## 📖 Uso
+## 📖 Usage
 
-### 1. Registro de Usuário
+### 1. User Registration
 
 ```bash
 curl -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
   -d '{
-    "username": "novouser",
-    "password": "senha123",
-    "email": "novo@email.com"
+    "username": "newuser",
+    "password": "password123",
+    "email": "new@email.com"
   }'
 ```
 
@@ -120,100 +120,100 @@ curl -X POST http://localhost:3000/auth/login \
   }'
 ```
 
-### 3. Usar Token de Autenticação
+### 3. Use Authentication Token
 
 ```bash
 curl -X GET http://localhost:3000/users/me \
-  -H "Authorization: Bearer SEU_TOKEN_JWT_AQUI"
+  -H "Authorization: Bearer YOUR_JWT_TOKEN_HERE"
 ```
 
 ## 🛣️ Endpoints
 
-### 🔐 Autenticação
+### 🔐 Authentication
 
-| Método | Endpoint | Descrição | Auth |
-|--------|----------|-----------|------|
-| POST | `/auth/register` | Registrar novo usuário | ❌ |
-| POST | `/auth/login` | Fazer login | ❌ |
-| GET | `/auth/verify` | Verificar token | ✅ |
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/auth/register` | Register new user | ❌ |
+| POST | `/auth/login` | Login | ❌ |
+| GET | `/auth/verify` | Verify token | ✅ |
 
-### 👥 Usuários
+### 👥 Users
 
-| Método | Endpoint | Descrição | Auth |
-|--------|----------|-----------|------|
-| GET | `/users` | Listar todos os usuários | ✅ |
-| GET | `/users/me` | Dados do usuário logado | ✅ |
-| GET | `/users/:id` | Buscar usuário por ID | ✅ |
-| PUT | `/users/:id` | Atualizar dados do usuário | ✅ |
-| GET | `/users/saldo` | Consultar saldo | ✅ |
-| POST | `/users/favorecidos` | Adicionar favorecido | ✅ |
-| DELETE | `/users/favorecidos/:id` | Remover favorecido | ✅ |
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/users` | List all users | ✅ |
+| GET | `/users/me` | Logged user data | ✅ |
+| GET | `/users/:id` | Find user by ID | ✅ |
+| PUT | `/users/:id` | Update user data | ✅ |
+| GET | `/users/saldo` | Check balance | ✅ |
+| POST | `/users/favorecidos` | Add favorite | ✅ |
+| DELETE | `/users/favorecidos/:id` | Remove favorite | ✅ |
 
-### 💰 Transações
+### 💰 Transactions
 
-| Método | Endpoint | Descrição | Auth |
-|--------|----------|-----------|------|
-| POST | `/transactions/transfer` | Realizar transferência | ✅ |
-| GET | `/transactions/extrato` | Consultar extrato | ✅ |
-| GET | `/transactions/:id` | Buscar transação por ID | ✅ |
-| GET | `/transactions` | Listar todas as transações | ✅ |
-| GET | `/transactions/stats` | Estatísticas das transações | ✅ |
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/transactions/transfer` | Make transfer | ✅ |
+| GET | `/transactions/extrato` | Check statement | ✅ |
+| GET | `/transactions/:id` | Find transaction by ID | ✅ |
+| GET | `/transactions` | List all transactions | ✅ |
+| GET | `/transactions/stats` | Transaction statistics | ✅ |
 
-### 📊 Sistema
+### 📊 System
 
-| Método | Endpoint | Descrição | Auth |
-|--------|----------|-----------|------|
-| GET | `/health` | Status da API | ❌ |
-| GET | `/api-docs` | Documentação Swagger | ❌ |
-| GET | `/swagger.json` | JSON do Swagger | ❌ |
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/health` | API status | ❌ |
+| GET | `/api-docs` | Swagger documentation | ❌ |
+| GET | `/swagger.json` | Swagger JSON | ❌ |
 
-## ⚖️ Regras de Negócio
+## ⚖️ Business Rules
 
-### 🔐 Autenticação e Registro
-1. **Login obrigatório**: Username e password são obrigatórios para fazer login
-2. **Usuários únicos**: Não é possível registrar usuários com username ou email duplicados
-3. **Senha segura**: Senhas são criptografadas com bcrypt
-4. **Token JWT**: Autenticação via token JWT com expiração de 24 horas
+### 🔐 Authentication and Registration
+1. **Mandatory login**: Username and password are required to login
+2. **Unique users**: Cannot register users with duplicate username or email
+3. **Secure password**: Passwords are encrypted with bcrypt
+4. **JWT token**: Authentication via JWT token with 24-hour expiration
 
-### 💸 Transferências
-1. **Limite para não favorecidos**: Transferências para usuários que não estão marcados como "favorecidos" são limitadas a **R$ 5.000,00**
-2. **Saldo suficiente**: O usuário deve ter saldo suficiente para realizar a transferência
-3. **Destinatário válido**: O destinatário deve existir no sistema
-4. **Autotransferência**: Não é possível transferir para si mesmo
+### 💸 Transfers
+1. **Limit for non-favorites**: Transfers to users who are not marked as "favorites" are limited to **$5,000.00**
+2. **Sufficient balance**: User must have sufficient balance to make the transfer
+3. **Valid recipient**: Recipient must exist in the system
+4. **Self-transfer**: Cannot transfer to yourself
 
-### 👥 Usuários
-1. **Saldo inicial**: Novos usuários começam com R$ 1.000,00
-2. **Favorecidos**: Usuários podem gerenciar sua lista de favorecidos
-3. **Dados sensíveis**: Senhas nunca são retornadas nas respostas da API
+### 👥 Users
+1. **Initial balance**: New users start with $1,000.00
+2. **Favorites**: Users can manage their favorites list
+3. **Sensitive data**: Passwords are never returned in API responses
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 banco-api/
 ├── 📁 config/
-│   └── database.js          # Configuração do banco em memória
+│   └── database.js          # In-memory database configuration
 ├── 📁 controllers/
-│   ├── authController.js    # Controller de autenticação
-│   ├── userController.js    # Controller de usuários
-│   └── transactionController.js # Controller de transações
+│   ├── authController.js    # Authentication controller
+│   ├── userController.js    # User controller
+│   └── transactionController.js # Transaction controller
 ├── 📁 services/
-│   ├── authService.js       # Lógica de autenticação
-│   ├── userService.js       # Lógica de usuários
-│   └── transactionService.js # Lógica de transações
+│   ├── authService.js       # Authentication logic
+│   ├── userService.js       # User logic
+│   └── transactionService.js # Transaction logic
 ├── 📁 repositories/
-│   ├── userRepository.js    # Acesso a dados de usuários
-│   └── transactionRepository.js # Acesso a dados de transações
-├── app.js                   # Configuração da aplicação Express
-├── server.js               # Servidor HTTP
-├── package.json            # Dependências e scripts
-└── README.md              # Este arquivo
+│   ├── userRepository.js    # User data access
+│   └── transactionRepository.js # Transaction data access
+├── app.js                   # Express application configuration
+├── server.js               # HTTP server
+├── package.json            # Dependencies and scripts
+└── README.md              # This file
 ```
 
-## 💡 Exemplos de Uso
+## 💡 Usage Examples
 
-### Fluxo Completo de Uso
+### Complete Usage Flow
 
-1. **Registrar um novo usuário:**
+1. **Register a new user:**
 
 ```javascript
 const response = await fetch('http://localhost:3000/auth/register', {
@@ -227,7 +227,7 @@ const response = await fetch('http://localhost:3000/auth/register', {
 });
 ```
 
-2. **Fazer login:**
+2. **Login:**
 
 ```javascript
 const loginResponse = await fetch('http://localhost:3000/auth/login', {
@@ -242,7 +242,7 @@ const loginResponse = await fetch('http://localhost:3000/auth/login', {
 const { token } = await loginResponse.json();
 ```
 
-3. **Consultar saldo:**
+3. **Check balance:**
 
 ```javascript
 const balanceResponse = await fetch('http://localhost:3000/users/saldo', {
@@ -250,7 +250,7 @@ const balanceResponse = await fetch('http://localhost:3000/users/saldo', {
 });
 ```
 
-4. **Realizar transferência:**
+4. **Make transfer:**
 
 ```javascript
 const transferResponse = await fetch('http://localhost:3000/transactions/transfer', {
@@ -262,37 +262,55 @@ const transferResponse = await fetch('http://localhost:3000/transactions/transfe
   body: JSON.stringify({
     destinatarioId: 2,
     valor: 100.50,
-    descricao: 'Pagamento de serviços'
+    descricao: 'Service payment'
   })
 });
 ```
 
-5. **Consultar extrato:**
+5. **Check statement:**
 
 ```javascript
-const extratoResponse = await fetch('http://localhost:3000/transactions/extrato?limit=5', {
+const statementResponse = await fetch('http://localhost:3000/transactions/extrato?limit=5', {
   headers: { 'Authorization': `Bearer ${token}` }
 });
 ```
 
-## 🧪 Testes
+## 🧪 Testing
 
-Esta API usa **Mocha** como framework de testes, **Chai** para assertions, **Sinon** para mocks/stubs e **Supertest** para testes de API. O arquivo `app.js` exporta a aplicação Express sem o método `listen()`, permitindo testes isolados.
+This API uses **Mocha** as testing framework, **Chai** for assertions, **Sinon** for mocks/stubs and **Supertest** for API testing. The `app.js` file exports the Express application without the `listen()` method, allowing isolated tests.
 
-### Executar Testes
+### Run Tests
 
 ```bash
-# Executar todos os testes
+# Run all tests
 npm test
 
-# Executar testes específicos
-npm run test:controllers    # Testes dos controllers
-npm run test:services       # Testes dos serviços (com Sinon)
-npm run test:integration   # Testes de integração
-npm run test:system        # Testes do sistema
+# Run specific tests
+npm run test:controllers    # Controller tests
+npm run test:services       # Service tests (with Sinon)
+npm run test:integration   # Integration tests
+npm run test:system        # System tests
+
+# Generate beautiful HTML report
+npm run test:report         # Creates report in test-results/test-report.html
 ```
 
-### Exemplo de Teste
+### 📊 Online Reports (GitHub Pages)
+
+Test reports are automatically published on **GitHub Pages** with each push to the `main` branch:
+
+- 🏠 **Main Dashboard**: Page with statistics and links
+- 📊 **HTML Report**: Interactive report with Mochawesome  
+- 📈 **JSON Data**: Structured data for integration
+
+**How to access:**
+1. Push code to the `main` branch
+2. Wait for workflow to complete (~2 minutes)
+3. Access: `https://[your-username].github.io/[repo-name]/`
+
+> 📋 See [GITHUB-PAGES.md](GITHUB-PAGES.md) for detailed configuration instructions
+
+### Test Example
 
 ```javascript
 const request = require('supertest');
@@ -302,7 +320,7 @@ const app = require('./app');
 
 describe('Auth Endpoints', () => {
   afterEach(() => {
-    sinon.restore(); // Importante: sempre limpar mocks/stubs
+    sinon.restore(); // Important: always clean mocks/stubs
   });
 
   it('should register a new user', async () => {
@@ -320,74 +338,74 @@ describe('Auth Endpoints', () => {
 });
 ```
 
-## 📚 Documentação
+## 📚 Documentation
 
 ### Swagger UI
 
-Acesse a documentação interativa da API em: **http://localhost:3000/api-docs**
+Access the interactive API documentation at: **http://localhost:3000/api-docs**
 
-A documentação Swagger inclui:
-- ✅ Todos os endpoints disponíveis
-- ✅ Esquemas de request/response
-- ✅ Exemplos de uso
-- ✅ Códigos de status HTTP
-- ✅ Modelos de dados
-- ✅ Interface para testar a API
+The Swagger documentation includes:
+- ✅ All available endpoints
+- ✅ Request/response schemas
+- ✅ Usage examples
+- ✅ HTTP status codes
+- ✅ Data models
+- ✅ Interface to test the API
 
 ### JSON Schema
 
-O esquema JSON do Swagger está disponível em: **http://localhost:3000/swagger.json**
+The Swagger JSON schema is available at: **http://localhost:3000/swagger.json**
 
-## 🚨 Códigos de Status HTTP
+## 🚨 HTTP Status Codes
 
-| Código | Descrição |
-|--------|-----------|
-| 200 | ✅ Sucesso |
-| 201 | ✅ Recurso criado |
-| 400 | ❌ Dados inválidos |
-| 401 | ❌ Não autorizado |
-| 403 | ❌ Acesso negado |
-| 404 | ❌ Recurso não encontrado |
-| 500 | ❌ Erro interno do servidor |
+| Code | Description |
+|------|-------------|
+| 200 | ✅ Success |
+| 201 | ✅ Resource created |
+| 400 | ❌ Invalid data |
+| 401 | ❌ Unauthorized |
+| 403 | ❌ Access denied |
+| 404 | ❌ Resource not found |
+| 500 | ❌ Internal server error |
 
 ## 🔧 Troubleshooting
 
-### Problemas Comuns
+### Common Issues
 
-1. **Porta 3000 já está em uso:**
+1. **Port 3000 already in use:**
    ```bash
-   # Use uma porta diferente
+   # Use a different port
    PORT=3001 npm start
    ```
 
-2. **Token JWT inválido:**
-   - Verifique se o token está sendo enviado no header `Authorization: Bearer <token>`
-   - Tokens expiram em 24 horas, faça login novamente
+2. **Invalid JWT token:**
+   - Check if token is being sent in the `Authorization: Bearer <token>` header
+   - Tokens expire in 24 hours, login again
 
-3. **Transferência negada:**
-   - Verifique se o destinatário existe
-   - Confirme se há saldo suficiente
-   - Para valores > R$ 5.000,00, o destinatário deve estar na lista de favorecidos
+3. **Transfer denied:**
+   - Check if recipient exists
+   - Confirm sufficient balance
+   - For amounts > $5,000.00, recipient must be in favorites list
 
-4. **Usuário já existe:**
-   - Username e email devem ser únicos no sistema
+4. **User already exists:**
+   - Username and email must be unique in the system
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+This project is under the MIT license. See the `LICENSE` file for more details.
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-Desenvolvido para fins educacionais - Aprendizado de testes e automação de APIs.
+Developed for educational purposes - Learning API testing and automation.
 
 ---
 
-**🎯 Objetivo**: Esta API foi criada especificamente para aprender e praticar testes automatizados a nível de API, proporcionando um ambiente controlado com regras de negócio bem definidas para exercitar cenários de teste diversos.
+**🎯 Objective**: This API was created specifically to learn and practice automated testing at the API level, providing a controlled environment with well-defined business rules to exercise diverse testing scenarios.

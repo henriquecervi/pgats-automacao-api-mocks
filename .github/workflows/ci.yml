@@ -2,9 +2,10 @@ name: 🏦 Bank API CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   # Job 1: Lint and Security Check
@@ -63,13 +64,13 @@ jobs:
       if: matrix.node-version == '18'
       run: npm run test:report
       
-    - name: 📊 Upload test results
+    - name: 📊 Upload test results (backup)
       if: matrix.node-version == '18'
       uses: actions/upload-artifact@v4
       with:
-        name: test-report
+        name: test-report-backup
         path: test-results/
-        retention-days: 30
+        retention-days: 7
         
     - name: 💾 Upload test coverage (if available)
       if: matrix.node-version == '18'
